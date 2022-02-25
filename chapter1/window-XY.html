@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get X, Y</title>
+</head>
+<style>
+    .root {
+        display: inline-flex;
+        flex-direction: row;
+        background-color: darkgray;
+        margin-bottom: 10px;
+    }
+    .box, .special {
+        width: 180px;
+        height: 180px;
+        background-color: beige;
+        margin: 5px 3px;
+    }
+    .special {
+        background-color: lightcoral;
+    }
+    .clickLog {
+        font-size: 20px;
+        position: fixed;
+        right: 10px;
+        top: 90px;
+    }
+    aside {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: 10px;
+        top: 10px;
+    }
+
+</style>
+<body>
+    <div class="root">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="root">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="root">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="root">
+        <div class="box"></div>
+        <div class="special"></div>
+        <div class="box"></div>
+    </div>
+    <div class="root">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="root">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="root">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="root">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="root">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <aside>
+        <button class="scrollBy">Scroll by 100px(y)</button>
+        <button class="scrollTo">Scroll to 100px(y)</button>
+        <button class="scrollInto">Scroll into special</button>
+    </aside>
+    
+    <div class="clickLog">Click any div!</div>
+    <script>
+        let clickLog = document.querySelector('.clickLog');
+        document.addEventListener("click", (e) => {
+            clickLog.innerText = `
+                Page X/Y: ${e.pageX}, ${e.pageY} 
+                Client X/Y: ${e.clientX}, ${e.clientY} 
+            `;
+        });
+
+        const scrollBy = document.querySelector('.scrollBy');
+        const scrollTo = document.querySelector('.scrollTo');
+        const scrollInto = document.querySelector('.scrollInto');
+
+        scrollBy.addEventListener('click', () => {
+            window.scrollBy({ top: 100, left: 0, behavior: 'smooth'});
+        });
+        scrollTo.addEventListener('click', () => {
+            window.scrollTo(0, 100);
+        });
+        scrollInto.addEventListener('click', () => {
+            window.scrollTo(285, 615);
+        });
+    </script>
+</body>
+</html>
