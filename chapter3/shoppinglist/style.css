@@ -77,7 +77,7 @@ ul {
     border: none;
     background-color: #9aa0a7;
     color: white;
-
+    cursor:auto; 
 }
 
 .itemBtn {
